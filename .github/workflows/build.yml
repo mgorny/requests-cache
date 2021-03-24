@@ -84,7 +84,7 @@ jobs:
   # Deploy stable builds on tags only
   release:
     needs: [test, analyze]
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
